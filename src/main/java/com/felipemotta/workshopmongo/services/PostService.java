@@ -1,6 +1,5 @@
 package com.felipemotta.workshopmongo.services;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,4 +21,7 @@ public class PostService {
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
 	}
 	
+	public List<Post> findByTitle(String text){
+		return repo.findByTitleContainingIgnoreCase(text);
+	}
 }
